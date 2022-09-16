@@ -1,15 +1,12 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
+using Sat.Recruitment.Api.Middleware;
+using Sat.Recruitment.Applications;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Sat.Recruitment.Api
 {
@@ -27,6 +24,8 @@ namespace Sat.Recruitment.Api
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddSatRecruitmentApplications();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,10 +46,12 @@ namespace Sat.Recruitment.Api
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCustomExceptionHandler();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

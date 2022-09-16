@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sat.Recruitment.Commons\Sat.Recruitment.Commons.csproj" />
+    <ProjectReference Include="..\Sat.Recruitment.Domain\Sat.Recruitment.Domain.csproj" />
+    <ProjectReference Include="..\Sat.Recruitment.Infrastructure.Interfaces\Sat.Recruitment.Infrastructure.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sat.Recruitment.Commons\Sat.Recruitment.Commons.csproj" />
+    <ProjectReference Include="..\Sat.Recruitment.Infrastructure.Interfaces\Sat.Recruitment.Infrastructure.Interfaces.csproj" />
+    <ProjectReference Include="..\Sat.Recruitment.Infrastructure\Sat.Recruitment.Infrastructure.Implementation.csproj" />
+  </ItemGroup>
+
+</Project>
